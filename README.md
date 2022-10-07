@@ -34,38 +34,30 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/iter-head
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-iterHead = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/iter-head@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var iterHead = require( 'path/to/vendor/umd/iter-head/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/iter-head@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.iterHead;
-})();
-</script>
+var iterHead = require( '@stdlib/iter-head' );
 ```
 
 #### iterHead( iterator, n )
@@ -118,28 +110,20 @@ The returned [iterator][mdn-iterator-protocol] protocol-compliant object has the
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-iter-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/iter-head@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
-
-var rand;
-var it;
-var r;
+```javascript
+var randu = require( '@stdlib/random-iter-randu' );
+var iterHead = require( '@stdlib/iter-head' );
 
 // Create a seeded iterator for generating pseudorandom numbers:
-rand = randu({
+var rand = randu({
     'seed': 1234
 });
 
 // Create an iterator which returns the first 10 generated numbers:
-it = iterHead( rand, 10 );
+var it = iterHead( rand, 10 );
 
 // Perform manual iteration...
+var r;
 while ( true ) {
     r = it.next();
     if ( r.done ) {
@@ -147,11 +131,6 @@ while ( true ) {
     }
     console.log( r.value );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -254,9 +233,9 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/iter/first]: https://github.com/stdlib-js/iter-first/tree/umd
+[@stdlib/iter/first]: https://github.com/stdlib-js/iter-first
 
-[@stdlib/iter/slice]: https://github.com/stdlib-js/iter-slice/tree/umd
+[@stdlib/iter/slice]: https://github.com/stdlib-js/iter-slice
 
 <!-- </related-links> -->
 
