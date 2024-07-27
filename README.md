@@ -52,6 +52,11 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import iterHead from 'https://cdn.jsdelivr.net/gh/stdlib-js/iter-head@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/iter-head/tags). For example,
+
+```javascript
 import iterHead from 'https://cdn.jsdelivr.net/gh/stdlib-js/iter-head@v0.2.2-esm/index.mjs';
 ```
 
@@ -112,7 +117,7 @@ The returned [iterator][mdn-iterator-protocol] protocol-compliant object has the
 <script type="module">
 
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-iter-randu@esm/index.mjs';
-import iterHead from 'https://cdn.jsdelivr.net/gh/stdlib-js/iter-head@v0.2.2-esm/index.mjs';
+import iterHead from 'https://cdn.jsdelivr.net/gh/stdlib-js/iter-head@esm/index.mjs';
 
 // Create a seeded iterator for generating pseudorandom numbers:
 var rand = randu({
