@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2019 The Stdlib Authors.
@@ -16,16 +16,29 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { Iterator as Iter, IterableIterator } from '@stdlib/types/iter';
+
+// Define a union type representing both iterable and non-iterable iterators:
+type Iterator = Iter | IterableIterator;
 
 /**
-* Create an iterator which returns the first `n` values of a provided iterator.
+* Returns an iterator which returns the first `n` values of a provided iterator.
 *
-* @module @stdlib/iter-head
+* ## Notes
+*
+* -   If a provided iterator only generates `m` values and `m` is less than `n`, the returned iterator only returns `m` values.
+* -   If an environment supports `Symbol.iterator` **and** a provided iterator is iterable, the returned iterator is iterable.
+*
+* @param iterator - input iterator
+* @param n - number of values
+* @returns iterator
 *
 * @example
 * var randu = require( '@stdlib/random-iter-randu' );
-* var iterHead = require( '@stdlib/iter-head' );
 *
 * var iter = iterHead( randu(), 10 );
 *
@@ -40,12 +53,9 @@
 *
 * // ...
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function iterHead( iterator: Iterator, n: number ): Iterator;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = iterHead;
